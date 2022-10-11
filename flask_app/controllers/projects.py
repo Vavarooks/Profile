@@ -8,3 +8,7 @@ bcrypt = Bcrypt(app)
 @app.route("/")
 def index():
     return render_template("index.html")
+
+@app.route("/submit")
+def submit():
+    return redirect("/")
