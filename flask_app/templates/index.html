@@ -14,20 +14,25 @@
     <nav class="navbar bg-light">
         <div class="container-fluid">
             <span class="navbar-brand mb-0 h1">Welcome</span>
+            <a class="btn btn-primary" href="/create">Create Project</a>
         </div>
     </nav>
     <div class="col d-block mx-auto w-50 my-2">
         <div class="rows">
-            <div class="card" style="width: 18rem;">
-                <img src="{{url_for('static',filename='place_holder.jpg')}}" class="card-img-top" alt="scenery">
-                <div class="card-body">
-                    <h5 class="card-title">Project 1</h5>
-                    <p class="card-text">Desc</p>
-                    <p class="card-text">Language</p>
-                    <p class="card-text">Created</p>
-                    <a href="#" class="btn btn-primary">Website</a>
+            {% for projects in all_projects %}
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{url_for('static',filename='place_holder.jpg')}}" class="card-img-top" alt="scenery">
+                    <div class="card-body">
+                        <h5 class="card-title">{{projects.id}}</h5>
+                        <p class="card-text">{{projects.name}}</p>
+                        <p class="card-text">{{projects.language}}</p>
+                        <p class="card-text">{{projects.created_at}}</p>
+                    </div>
                 </div>
             </div>
+            {% endfor %}
+            
         </div>
     </div>
 
